@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>it is ejs file</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+    <h1>EJS <%= 2+12%></h1>
+    <%= 20+21%>
+    <script src="javascripts/script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body class="w-100 h-100 bg-secondary ">
+    <div>
+    <form class="bg-secondary bg-gradient p-3" action="/create" method="post">
+        <input type="text" class="form-control m-3" placeholder="enter your task" name="title" />
+        <textarea type="text" class="form-control m-3" placeholder="Write your task details here...." name="details"></textarea>
+        <input type="submit" class="btn btn-primary ms-3"/>
+    </form>
+    </div>
+    <div>
+    <% if(files.length >0){ %>
+        <% files.forEach(function(val){ %>
+            <article class="card bg-dark m-3 d-inline-flex" style="width: 18rem; height: 10rem;">
+                <div class="card-body">
+                   <h5 class="card-title text-white"><%= val %></h5>
+                    <div class="d-flex justify-content-between">
+                   <a class="d-inline-flex" href="/file/<%= val%>" class="bg-blue mt-5">Read More...</a>
+                   <a class="text-secondary" href="/edit/<%= val%>">edit filename</a>
+                  </div>
+                </div>
+              </article>
+        <% }) %>
+       <% } else { %>
+        <h3>no task for now.</h3>
+        <% } %>
+    </div>
+    <!-- <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script> -->
+  </body>
+</html>
